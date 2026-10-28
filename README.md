@@ -1,6 +1,6 @@
 # Craft Skills
 
-Agent skills for UI design, frontend and backend code, mobile apps, tests, and copy.
+Agent skills for UI design, motion graphics, frontend and backend code, mobile apps, tests, and copy.
 
 Each skill lives in its own folder under `skills/`. Install the whole collection or pick the skills you need.
 
@@ -9,6 +9,7 @@ Each skill lives in its own folder under `skills/`. Install the whole collection
 | Skill | What it covers |
 |---|---|
 | [rich-ui](skills/rich-ui/SKILL.md) | Type, layout, color, tokens, and visual review. Small fixes use a shorter workflow. |
+| [motion-graphic-design](skills/motion-graphic-design/SKILL.md) | Kinetic type, product films, animated explainers, 3D demonstrations, and rendering checks. |
 | [ui-unslop](skills/ui-unslop/SKILL.md) | Web UI consistency, accessibility, contrast, and interaction states. |
 | [frontend-unslop](skills/frontend-unslop/SKILL.md) | React, Next.js, TypeScript, and Tailwind implementation checks. |
 | [backend-unslop](skills/backend-unslop/SKILL.md) | API validation, database queries, error handling, and backend reliability. |
@@ -17,6 +18,8 @@ Each skill lives in its own folder under `skills/`. Install the whole collection
 | [copy-unslop](skills/copy-unslop/SKILL.md) | Specific product copy and microcopy in English and Bahasa Indonesia. |
 
 `rich-ui` guides visual decisions. `ui-unslop` checks web UI rules. Their scopes overlap; install only what fits your workflow.
+
+`motion-graphic-design` covers authored animation sequences, from storyboards through export. It includes references for choreography, 3D scenes, rendering, and [the sources studied](skills/motion-graphic-design/references/sources.md).
 
 ## Install
 
@@ -28,7 +31,7 @@ cd craft-skills
 ./install.sh
 ```
 
-By default, this copies all seven skills into `~/.agents/skills`, the shared personal skill directory used by Codex. For Claude Code:
+By default, this copies all eight skills into `~/.agents/skills`, the shared personal skill directory used by Codex. For Claude Code:
 
 ```bash
 ./install.sh --target claude
@@ -49,12 +52,19 @@ See the official [Codex skill documentation](https://learn.chatgpt.com/docs/buil
 ```bash
 ./install.sh --list
 ./install.sh --skill rich-ui
+./install.sh --skill motion-graphic-design
 ./install.sh --skill frontend-unslop --skill test-unslop --target claude
 ./install.sh --target all --dry-run
 ./install.sh --dir ../my-project/.agents/skills --skill rich-ui
 ```
 
 Installs are copies. Editing this checkout does not change installed copies. Installs leave out test data, tests, and Python caches.
+
+For example, ask your agent:
+
+```text
+Use $motion-graphic-design to create a 15-second product launch animation.
+```
 
 ### Update installed copies
 
@@ -70,6 +80,8 @@ Use the same target and skill options when updating a selected installation. The
 ## Companion tools
 
 `rich-ui` includes local Python checks for design documents, contrast, and token values. Browser or simulator rendering comes from your agent environment.
+
+`motion-graphic-design` uses the project's animation and rendering tools, such as GSAP, Remotion, Three.js, or Blender. It has no required companion MCP server. Renderers, browsers, media tools, and assets are not bundled with the skill.
 
 The six `*-unslop` skills require their matching MCP servers for the verification tools named in their instructions. The installer copies skill files only; it does not supply these servers. Connect these tools to run the checks in each skill.
 

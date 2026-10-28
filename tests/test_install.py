@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location('craft_install', ROOT / 'scripts' / 'install.py')
 INSTALLER = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(INSTALLER)
-NAMES = {'backend-unslop', 'copy-unslop', 'frontend-unslop', 'mobile-unslop', 'rich-ui', 'test-unslop', 'ui-unslop'}
+NAMES = {'backend-unslop', 'copy-unslop', 'frontend-unslop', 'mobile-unslop', 'motion-graphic-design', 'rich-ui', 'test-unslop', 'ui-unslop'}
 
 
 class InstallerTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class InstallerTests(unittest.TestCase):
         return subprocess.run([sys.executable, '-B', str(ROOT / 'scripts' / 'install.py'), *map(str, args)],
                               capture_output=True, text=True, check=False)
 
-    def test_lists_all_seven_skills(self):
+    def test_lists_all_skills(self):
         result = self.run_installer('--list')
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(set(result.stdout.splitlines()), NAMES)
@@ -34,6 +34,19 @@ class InstallerTests(unittest.TestCase):
                 self.assertEqual((destination / name / 'SKILL.md').read_bytes(), (ROOT / 'skills' / name / 'SKILL.md').read_bytes())
             self.assertTrue((destination / 'rich-ui' / 'scripts' / 'check_contrast.py').is_file())
             self.assertTrue((destination / 'rich-ui' / 'assets' / 'design.md.template').is_file())
+            for relative in (
+                'agents/openai.yaml',
+                'references/choreography.md',
+                'references/prompt-patterns.md',
+                'references/runtime-and-delivery.md',
+                'references/sources.md',
+                'references/three-dimensional.md',
+            ):
+                with self.subTest(motion_resource=relative):
+                    self.assertEqual(
+                        (destination / 'motion-graphic-design' / relative).read_bytes(),
+                        (ROOT / 'skills' / 'motion-graphic-design' / relative).read_bytes(),
+                    )
             self.assertFalse((destination / 'rich-ui' / 'evals').exists())
             self.assertFalse((destination / 'rich-ui' / 'tests').exists())
             self.assertFalse(list(destination.rglob('__pycache__')))
