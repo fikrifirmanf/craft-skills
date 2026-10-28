@@ -1,0 +1,89 @@
+---
+name: "<System name>"
+description: "<Product, audience, and visual direction>"
+platforms: ["web"]
+colors:
+  background: "#FFFFFF"
+  surface: "#F5F5F5"
+  text-primary: "#171717"
+  text-secondary: "#525252"
+  accent: "#1D4ED8"
+  on-accent: "#FFFFFF"
+  border: "#D4D4D4"
+  focus: "#1D4ED8"
+typography:
+  headline:
+    fontFamily: "system-ui"
+    fontSize: "32px"
+    fontWeight: 600
+    lineHeight: "1.2"
+  body:
+    fontFamily: "system-ui"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: "1.5"
+  label:
+    fontFamily: "system-ui"
+    fontSize: "14px"
+    fontWeight: 500
+    lineHeight: "1.4"
+spacing:
+  base: "4px"
+  sm: "8px"
+  md: "16px"
+  lg: "24px"
+  xl: "32px"
+rounded:
+  control: "8px"
+  panel: "12px"
+components:
+  button-primary:
+    background: "{colors.accent}"
+    text-color: "{colors.on-accent}"
+    radius: "{rounded.control}"
+    height: "44px"
+contrast:
+  body-on-page:
+    foreground: text-primary
+    background: background
+    usage: text
+  secondary-on-page:
+    foreground: text-secondary
+    background: background
+    usage: text
+  action-label:
+    foreground: on-accent
+    background: accent
+    usage: text
+  focus-on-page:
+    foreground: focus
+    background: background
+    usage: ui
+---
+
+## Overview
+<Describe the product and chosen direction. Replace starter values with deliberate choices.>
+
+## Composition
+<Describe the first view, reading order, and primary action.>
+
+## Colors
+<Assign color roles. Add actual contrast pairings and theme overrides as needed.>
+
+## Typography
+<Define family roles, hierarchy, and platform font scaling.>
+
+## Layout
+<Specify density, grid, responsive behavior, and spacing roles.>
+
+## Components
+<Identify required variants and relevant interaction states.>
+
+## Graphics & Effects
+<Describe useful imagery and effects, or write None.>
+
+## Motion
+<Specify transitions and reduced-motion behavior, or write None.>
+
+## Guardrails
+<List the specific constraints this product needs.>

@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: landing-page-kopi-pagi
+expected_outcome: |
+  A runnable Next.js + Tailwind landing page for a coffee subscription called Kopi Pagi with a distinct,
+  non-template visual identity driven by explicit tokens, real-sounding copy, and accessible contrast.

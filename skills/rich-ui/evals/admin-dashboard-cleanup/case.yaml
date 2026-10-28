@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: admin-dashboard-cleanup
+expected_outcome: |
+  The messy React admin dashboard is refactored onto a consistent token-based design system (colours, spacing,
+  type, radius), with inline magic values removed, status shown with more than colour, and the app still building.
+context:
+  scaffold_script: place-files.sh

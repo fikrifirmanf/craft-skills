@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+.env
+.env.*
+!.env.example
+.craft-skills-stage-*/
+.craft-skills-backups/
