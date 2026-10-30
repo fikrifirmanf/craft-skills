@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: fintech-wallet
+expected_outcome: |
+  For a wallet with transfers, payouts and an audit requirement, the agent recommends Hexagonal with DDD and
+  Event Sourcing for the ledger, then (once the user picks) writes an ADR, shows the tree before creating files,
+  scaffolds a Transfer-style slice in Go, and runs the boundary check.

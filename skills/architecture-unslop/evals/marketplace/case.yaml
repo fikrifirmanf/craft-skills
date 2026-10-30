@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: marketplace
+expected_outcome: |
+  For a marketplace with several distinct domains and a single small team, the agent recommends a Modular Monolith
+  and, if Microservices come up, warns once that it is heavy for one team.

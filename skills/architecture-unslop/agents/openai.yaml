@@ -1,0 +1,3 @@
+interface:
+  display_name: "Architecture Unslop"
+  short_description: "Pick, record, scaffold and enforce a backend architecture"

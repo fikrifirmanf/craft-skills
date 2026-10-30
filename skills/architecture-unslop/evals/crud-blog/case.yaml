@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: crud-blog
+expected_outcome: |
+  The agent shows the architecture picker with Layered/MVC and Simple models recommended for a simple blog,
+  recommends no add-ons, and does not push DDD, CQRS, Event Sourcing or Microservices.

@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location('craft_install', ROOT / 'scripts' / 'install.py')
 INSTALLER = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(INSTALLER)
-NAMES = {'backend-unslop', 'copy-unslop', 'frontend-unslop', 'mobile-unslop', 'motion-graphic-design', 'rich-ui', 'test-unslop', 'ui-unslop'}
+NAMES = {'architecture-unslop', 'backend-unslop', 'copy-unslop', 'frontend-unslop', 'mobile-unslop', 'motion-graphic-design', 'rich-ui', 'test-unslop', 'ui-unslop'}
 
 
 class InstallerTests(unittest.TestCase):
@@ -47,6 +47,18 @@ class InstallerTests(unittest.TestCase):
                         (destination / 'motion-graphic-design' / relative).read_bytes(),
                         (ROOT / 'skills' / 'motion-graphic-design' / relative).read_bytes(),
                     )
+            for relative in (
+                'scripts/check_boundaries.py',
+                'scripts/find_adr.py',
+                'assets/adr.md.template',
+                'references/picker.md',
+                'references/base/hexagonal.md',
+                'references/stacks/go.md',
+            ):
+                with self.subTest(architecture_resource=relative):
+                    self.assertTrue((destination / 'architecture-unslop' / relative).is_file())
+            self.assertFalse((destination / 'architecture-unslop' / 'evals').exists())
+            self.assertFalse((destination / 'architecture-unslop' / 'tests').exists())
             self.assertFalse((destination / 'rich-ui' / 'evals').exists())
             self.assertFalse((destination / 'rich-ui' / 'tests').exists())
             self.assertFalse(list(destination.rglob('__pycache__')))
