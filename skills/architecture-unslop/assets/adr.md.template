@@ -1,0 +1,55 @@
+<!-- architecture-unslop -->
+# ADR-{{number}}: Architecture for {{project}}
+
+- Status: Accepted
+- Date: {{date}}
+- Supersedes: {{supersedes}}
+
+## Decision
+
+| Key | Value |
+|---|---|
+| base | {{base}} |
+| modeling | {{modeling}} |
+| addons | {{addons}} |
+| stack | {{stack}} |
+| framework | {{framework}} |
+
+<!--
+Keep the keys and values above in English and lower case so find_adr.py can read them.
+base: layered-mvc | hexagonal | clean-onion | modular-monolith | microservices | vertical-slice | other:<name>
+modeling: ddd-full | ddd-tactical | simple-models | other:<name>
+addons: none, or a comma list of cqrs | event-sourcing | event-driven, optionally scoped as cqrs:<context>
+stack: typescript | python | go | rust | jvm | csharp | php | ruby
+framework: none, or the framework the user named
+Write every section below in the user's language.
+-->
+
+## Context
+
+{{The idea in one or two sentences, quoted or close to the user's words.}}
+
+Signals: {{the signals from references/signals.md that drove the recommendation}}
+
+## Why
+
+{{Why this combination fits. If the user chose something other than the recommendation, say what was recommended and that the user chose otherwise.}}
+
+## Consequences
+
+- {{What gets easier}}
+- {{What gets harder or costs more}}
+- {{Overkill warning given, if any, in one line}}
+
+## Rules in force
+
+- references/base/{{base}}.md
+- references/modeling/{{modeling}}.md
+- {{one line per add-on: references/addons/<addon>.md}}
+- references/stacks/{{stack}}.md
+
+## Bounded contexts
+
+| Context | Owns | Talks to others through |
+|---|---|---|
+| {{orders}} | {{orders, order lines}} | {{public API in index file / events}} |

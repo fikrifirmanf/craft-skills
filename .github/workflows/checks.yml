@@ -35,5 +35,7 @@ jobs:
         run: python3 -B -m unittest discover -s tests -v
       - name: Check rich-ui scripts
         run: python3 -B -m unittest discover -s skills/rich-ui/tests -v
+      - name: Check architecture-unslop scripts
+        run: python3 -B -m unittest discover -s skills/architecture-unslop/tests -v
       - name: Validate full design example
         run: python3 -B skills/rich-ui/scripts/lint_design_md.py skills/rich-ui/assets/examples/harbor-ledger.design.md

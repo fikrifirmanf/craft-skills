@@ -1,6 +1,6 @@
 # Craft Skills
 
-Agent skills for UI design, motion graphics, frontend and backend code, mobile apps, tests, and copy.
+Agent skills for UI design, motion graphics, frontend and backend code, backend architecture, mobile apps, tests, and copy.
 
 Each skill lives in its own folder under `skills/`. Install the whole collection or pick the skills you need.
 
@@ -13,11 +13,14 @@ Each skill lives in its own folder under `skills/`. Install the whole collection
 | [ui-unslop](skills/ui-unslop/SKILL.md) | Web UI consistency, accessibility, contrast, and interaction states. |
 | [frontend-unslop](skills/frontend-unslop/SKILL.md) | React, Next.js, TypeScript, and Tailwind implementation checks. |
 | [backend-unslop](skills/backend-unslop/SKILL.md) | API validation, database queries, error handling, and backend reliability. |
+| [architecture-unslop](skills/architecture-unslop/SKILL.md) | Choosing a backend architecture from an explained menu, recording it as an ADR, scaffolding one example slice, and checking layer boundaries. |
 | [mobile-unslop](skills/mobile-unslop/SKILL.md) | iOS, Android, React Native, and Flutter implementation checks. |
 | [test-unslop](skills/test-unslop/SKILL.md) | Tests that check behavior and fail when that behavior breaks. |
 | [copy-unslop](skills/copy-unslop/SKILL.md) | Specific product copy and microcopy in English and Bahasa Indonesia. |
 
 `rich-ui` guides visual decisions. `ui-unslop` checks web UI rules. Their scopes overlap; install only what fits your workflow.
+
+`architecture-unslop` asks before it builds. It recommends an architecture from the user's description (Layered/MVC, Hexagonal, Clean, Modular Monolith, Microservices, Vertical Slice, with DDD, CQRS, Event Sourcing or Event-Driven add-ons), lets the user pick or type their own, saves the choice to `docs/adr/`, and scaffolds the folders with one working slice in TypeScript, Python, Go, Rust, Java/Kotlin, C#, PHP or Ruby. `backend-unslop` covers the line-level rules inside that structure.
 
 `motion-graphic-design` covers authored animation sequences, from storyboards through export. It includes references for choreography, 3D scenes, rendering, and [the sources studied](skills/motion-graphic-design/references/sources.md).
 
@@ -31,7 +34,7 @@ cd craft-skills
 ./install.sh
 ```
 
-By default, this copies all eight skills into `~/.agents/skills`, the shared personal skill directory used by Codex. For Claude Code:
+By default, this copies all nine skills into `~/.agents/skills`, the shared personal skill directory used by Codex. For Claude Code:
 
 ```bash
 ./install.sh --target claude
@@ -81,9 +84,11 @@ Use the same target and skill options when updating a selected installation. The
 
 `rich-ui` includes local Python checks for design documents, contrast, and token values. Browser or simulator rendering comes from your agent environment.
 
+`architecture-unslop` includes `find_adr.py`, which reads the saved decision, and `check_boundaries.py`, which scans imports for layer and module violations. Both use the Python standard library.
+
 `motion-graphic-design` uses the project's animation and rendering tools, such as GSAP, Remotion, Three.js, or Blender. It has no required companion MCP server. Renderers, browsers, media tools, and assets are not bundled with the skill.
 
-The six `*-unslop` skills require their matching MCP servers for the verification tools named in their instructions. The installer copies skill files only; it does not supply these servers. Connect these tools to run the checks in each skill.
+The six `*-unslop` skills listed below require their matching MCP servers for the verification tools named in their instructions. The installer copies skill files only; it does not supply these servers. Connect these tools to run the checks in each skill.
 
 | Skill | Companion server and setup |
 |---|---|
@@ -98,11 +103,12 @@ Each server explains how to set it up in your agent. Without the tools, the agen
 
 ## Development
 
-Run both test suites:
+Run the test suites:
 
 ```bash
 python3 -B -m unittest discover -s tests -v
 python3 -B -m unittest discover -s skills/rich-ui/tests -v
+python3 -B -m unittest discover -s skills/architecture-unslop/tests -v
 bash -n install.sh
 ```
 

@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: vague-prompt
+expected_outcome: |
+  With no description of what the software does, the agent asks one short question about the app before
+  showing any architecture options.
