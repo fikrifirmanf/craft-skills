@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: clinic-scheduler-greenfield
+expected_outcome: |
+  A greenfield, multi-screen, data-dense product (a clinic scheduling app) built from a written spec alone
+  gets a deliberate design system and four coherent screens with light and dark themes, real
+  loading/empty/error states, accessible forms, and a working phone layout, without generic AI-looking
+  defaults.
+---
