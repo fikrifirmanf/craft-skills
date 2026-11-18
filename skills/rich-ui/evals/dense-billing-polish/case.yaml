@@ -1,0 +1,15 @@
+schema_version: "1.1"
+name: dense-billing-polish
+expected_outcome: |
+  A functional but amateur billing settings page gets a professional visual pass that handles the details a
+  quick restyle usually misses: readable text over the gradient banner, aligned numeric columns, fixed-ratio
+  avatars, adequate touch targets, a designed empty state, a fixed sidebar with a capped content column,
+  and a de-emphasized destructive action, without changing the content or features.
+context:
+  scaffold_script: place-files.sh
+---
+tags: [skill-creator]
+max_turns: 40
+timeout_seconds: 900
+allowed_tools: [Read, Glob, Grep, Skill, Write, Edit, Bash]
+---

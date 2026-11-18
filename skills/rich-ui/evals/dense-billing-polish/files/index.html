@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Billing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="side">
+      <div class="logo">Northwind</div>
+      <a href="#" class="side-link">Dashboard</a>
+      <a href="#" class="side-link">Projects</a>
+      <a href="#" class="side-link current">Billing</a>
+      <a href="#" class="side-link">Team</a>
+      <a href="#" class="side-link">Integrations</a>
+    </aside>
+    <main class="main">
+      <div class="hero">
+        <h1>Billing</h1>
+        <p>Manage your plan, invoices and payment methods for the Northwind workspace.</p>
+      </div>
+
+      <section class="card">
+        <h2>Current plan</h2>
+        <p>Plan: Business</p>
+        <p>Seats: 14 of 20 used</p>
+        <p>Next invoice: 1 Dec 2026</p>
+        <p>Monthly total: $1,260.00</p>
+        <button class="b">Change plan</button>
+        <button class="b">Cancel subscription</button>
+      </section>
+
+      <section class="card">
+        <h2>Invoices</h2>
+        <div class="tabs"><a href="#" class="tab on">All</a><a href="#" class="tab">Paid</a><a href="#" class="tab">Overdue</a></div>
+        <table>
+          <tr><th>Invoice</th><th>Date</th><th>Amount</th><th>Tax</th><th>Status</th><th></th></tr>
+          <tr><td>INV-2041</td><td>1 Nov 2026</td><td>$1,260.00</td><td>$126.00</td><td>Paid</td><td><button class="ico" title="Download">⬇</button></td></tr>
+          <tr><td>INV-2033</td><td>1 Oct 2026</td><td>$1,260.00</td><td>$126.00</td><td>Paid</td><td><button class="ico" title="Download">⬇</button></td></tr>
+          <tr><td>INV-2019</td><td>1 Sep 2026</td><td>$980.50</td><td>$98.05</td><td>Overdue</td><td><button class="ico" title="Download">⬇</button></td></tr>
+          <tr><td>INV-2002</td><td>1 Aug 2026</td><td>$98.00</td><td>$9.80</td><td>Paid</td><td><button class="ico" title="Download">⬇</button></td></tr>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Billing contacts</h2>
+        <ul class="people">
+          <li><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='80'><rect width='160' height='80' fill='%23c7d2fe'/><circle cx='80' cy='40' r='24' fill='%236366f1'/></svg>" alt=""><span>Rina Hartono</span><span class="role">Owner</span></li>
+          <li><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='120'><rect width='60' height='120' fill='%23fde68a'/><circle cx='30' cy='60' r='20' fill='%23f59e0b'/></svg>" alt=""><span>Budi Santoso</span><span class="role">Finance</span></li>
+          <li><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23ffffff'/><circle cx='50' cy='50' r='30' fill='%23e5e7eb'/></svg>" alt=""><span>Dewi Lestari</span><span class="role">Admin</span></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Payment methods</h2>
+        <div class="tabs"><a href="#" class="tab on">Cards</a><a href="#" class="tab">Bank accounts</a></div>
+        <table>
+          <tr><th>Type</th><th>Ending</th><th>Expires</th><th></th></tr>
+        </table>
+        <p>No payment methods.</p>
+        <button class="b">Add payment method</button>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

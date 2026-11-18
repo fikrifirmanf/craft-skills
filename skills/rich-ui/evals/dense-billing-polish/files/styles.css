@@ -1,0 +1,26 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; color: #333; background: #f3f4f6; }
+.layout { overflow: hidden; }
+.side { float: left; width: 25%; min-height: 100vh; background: #1f2937; padding: 20px; }
+.logo { color: #fff; font-size: 22px; font-weight: bold; margin-bottom: 24px; }
+.side-link { display: block; color: #9ca3af; padding: 10px; text-decoration: none; }
+.side-link.current { color: #fff; background: #374151; }
+.main { float: left; width: 75%; padding: 20px; }
+.hero { background: linear-gradient(90deg, #e0e7ff, #1e3a8a); padding: 40px 30px; margin-bottom: 20px; color: #fff; }
+.hero h1 { margin: 0 0 8px; font-size: 34px; }
+.hero p { margin: 0; font-size: 16px; }
+.card { background: #fff; border: 1px solid #d1d5db; padding: 20px; margin-bottom: 20px; }
+.card h2 { font-size: 24px; margin: 0 0 12px; }
+.card p { margin: 3px 0; }
+.b { background: #2563eb; color: #fff; border: 0; padding: 8px 16px; margin: 12px 8px 0 0; font-size: 15px; }
+.b:nth-of-type(2) { background: #dc2626; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+th, td { text-align: left; padding: 8px; border: 1px solid #d1d5db; font-size: 14px; }
+.tabs { margin-bottom: 8px; }
+.tab { display: inline-block; padding: 4px 10px; border: 1px solid #d1d5db; color: #333; text-decoration: none; font-size: 13px; }
+.tab.on { background: #2563eb; color: #fff; }
+.ico { width: 28px; height: 28px; border: 1px solid #d1d5db; background: #fff; font-size: 12px; }
+.people { list-style: none; margin: 0; padding: 0; }
+.people li { padding: 8px 0; }
+.people img { width: 48px; margin-right: 12px; vertical-align: middle; }
+.role { margin-left: 12px; color: #9ca3af; }
