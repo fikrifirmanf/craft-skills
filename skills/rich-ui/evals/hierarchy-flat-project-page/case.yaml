@@ -1,0 +1,14 @@
+schema_version: "1.1"
+name: hierarchy-flat-project-page
+expected_outcome: |
+  A flat, noisy project overview page is restyled so it has a clear visual hierarchy using colour, weight and
+  softening rather than only larger sizes: values lead over labels, section titles stay modest, secondary text on
+  the coloured banner is readable and not washed-out grey, and the three actions look different from one another.
+context:
+  scaffold_script: place-files.sh
+---
+tags: [skill-creator]
+max_turns: 40
+timeout_seconds: 900
+allowed_tools: [Read, Glob, Grep, Skill, Write, Edit, Bash]
+---

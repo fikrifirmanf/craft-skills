@@ -10,23 +10,27 @@ A generated UI is recognisable by its defaults: purple gradients, glass cards, e
 ## 1. Before you draw anything
 - **Find the system first.** Read the existing tokens (CSS variables, `@theme`, `tailwind.config`) and components. Call `analyze_design_tokens` on the project to see the real palette, type scale, radii and spacing in use. Extend that system; do not invent a parallel one.
 - **One idea per screen.** Decide the primary action and the single most important piece of information. Hierarchy (size, weight, position, contrast) serves that, not decoration.
+- **Build hierarchy by softening, not shouting.** Use colour and weight, not only size. Soften secondary text and the competition around the focus instead of enlarging it. Drop a `Label:` when the value is self-evident or merge them ("12 left in stock"). Primary, secondary and tertiary actions must look different.
 
 ## 2. Color & contrast (HARD RULES)
 - **Every text/background pair meets WCAG AA:** 4.5:1 for body text, 3:1 for large text (>=24px, or >=18.66px bold) and for UI boundaries (input borders, focus rings, icons that carry meaning). Check unfamiliar pairs with `check_contrast` before using them; it accepts Tailwind names and returns the nearest passing shade.
 - **Check both themes.** A `dark:` pair is a separate pair.
 - **Muted is not faint.** Secondary text on white starts around `gray-600`, not `gray-400`. White text on mid-tone fills (`emerald-600`, `amber-500`) usually fails; use the -700 shade.
+- **No grey or low-opacity white text on coloured fills.** Hand-pick a same-hue tone that still passes 4.5:1, or flip to dark text on a light tint.
 - **Color is never the only signal.** Errors get an icon or text, not just red.
 - **No gradient-filled headline text, no frosted glass cards (`bg-white/10 backdrop-blur`), no ambient blurred blobs.** Solid surfaces with clear borders read as designed.
 
 ## 3. Type & layout
 - **Type scale:** 4-6 sizes total. Body copy 16px (14px minimum for dense UI), never below 12px for anything. Line length 45-75 characters (`max-w-prose`).
 - **Spacing on the grid:** multiples of 4px (Tailwind's scale). No `p-[13px]`.
-- **Left-align** body text and most headings; centre only short, isolated lines.
+- **Left-align** body text and most headings; centre only short, isolated lines (two or three lines at most). Right-align numbers in tables.
+- **Don't stretch to fill.** Cap forms, cards and prose with `max-w-*` and give a sidebar a fixed width. Separate groups with more space than sits inside them.
 - **Mobile viewport:** `min-h-dvh`, not `h-screen`/`100vh`. Never disable zoom (`maximum-scale=1`, `user-scalable=no`).
 - **Stacking:** a small z-index scale (e.g. dropdown 10, sticky 20, modal 50, toast 60), not `z-[9999]`.
 
 ## 4. Interaction & accessibility (HARD RULES)
 - **Real controls:** actions are `<button>`, navigation is `<a href>`. No `onClick` on `div`/`span`.
+- **Touch targets:** at least 44x44px for anything tappable (`min-h-11 min-w-11`, or padding to extend the hit area).
 - **Every control has a name:** icon-only buttons get `aria-label`; inputs get a `<label>` (placeholders are hints, not labels).
 - **Visible focus:** if you remove the outline, replace it (`focus-visible:ring-2 focus-visible:ring-ring`). Never `tabindex` > 0.
 - **Images:** meaningful `alt`, or `alt=""` when decorative.

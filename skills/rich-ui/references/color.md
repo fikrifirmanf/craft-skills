@@ -8,6 +8,7 @@
 5. Semantic colours
 6. Gradients and colour washes
 7. Contrast checklist
+8. Building a shade scale
 
 ---
 
@@ -40,6 +41,7 @@ Aim for the accent covering under 5% of the screen area. The corpus regularly qu
 - **Three text steps:** primary (headings, body), secondary (supporting copy, labels), tertiary (metadata, placeholders, disabled). All real text needs 4.5:1 or more against the surface it sits on. Use tertiary only for large text or non-essential decoration if it can't reach 4.5:1.
 - **Surfaces:** base field, raised surface (cards, popovers), sunken or alt surface (wells, code blocks, inverted bands). On light themes, raised is often *pure white on an off-white field*. That small step gives depth without shadows.
 - **Borders:** a hairline at about 1.2–1.5:1 against the surface for dividers. Interactive boundaries (input outlines, checkbox borders) need 3:1.
+- **Text on coloured fills:** do not use grey or white-at-low-opacity for secondary text. Hand-pick a colour of the same hue as the fill. White on a mid-tone fill often needs a very dark fill to pass 4.5:1, and a dark fill grabs attention. For quieter elements flip it: dark coloured text on a light tint of the same hue. For coloured secondary text on a coloured panel, rotate the hue slightly toward a brighter one (yellow, cyan, magenta) to gain contrast without going to white.
 - Avoid pure #000 text on pure #FFF for long reading. Off-black (#111–#1C1C1C, or tinted) on white or off-white is easier on the eyes and looks more refined.
 
 ## 4. Dark mode
@@ -77,3 +79,14 @@ Run `scripts/check_contrast.py design.md`. It checks explicit `contrast` pairing
 - disabled states (exempt from WCAG, but should still be readable enough to understand)
 - focus rings against both the component and the page
 - selected-row text on the selection tint
+
+## 8. Building a shade scale
+
+Define every shade up front. Do not generate variants on the fly with `lighten()` or `darken()`.
+1. Pick a **base** (500) that would work as a button fill.
+2. Pick the **darkest** (900, used for text on tints) and **lightest** (100, used for tinted backgrounds such as alerts) with the same hue, adjusting saturation and lightness by eye.
+3. Fill the midpoints (700, 300), then the remaining gaps (800, 600, 400, 200). Five shades is a minimum; nine or ten avoids feeling boxed in.
+4. Greys follow the same process, starting from the darkest text colour and a subtle off-white. Keep a hue tint (cool = a touch of blue, warm = yellow or orange) and raise saturation slightly at both ends so the temperature stays consistent.
+5. Tune by eye after using the scale in real screens, then stop adding shades.
+
+If working in HSL rather than OKLCH: saturation loses effect as lightness leaves 50%, so raise it at light and dark ends. Different hues have different perceived brightness; shift hue 20–30° toward yellow, cyan or magenta to lighten and toward red, green or blue to darken, rather than only changing lightness (yellow darks should drift toward orange, not mud). OKLCH keeps perceived lightness more even, so use it where supported.

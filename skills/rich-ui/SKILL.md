@@ -14,7 +14,7 @@ Make visual decisions that fit the product, carry them into code, and inspect th
 | Small visual fix or component adjustment | Read the affected component and existing tokens. Make the change and inspect the affected states. No new design.md or reference reading required. |
 | New screen in an established product | Reuse its theme and components. Add only missing tokens; update an existing design.md only when decisions change. If useful, record new decisions briefly in the project's existing documentation. |
 | New product, design system, or substantial redesign | Choose a direction, write a concise design.md, implement, render, and verify as below. |
-| Review only | Inspect renders and relevant source. Report actionable findings ranked by impact. Create files or change code only when requested. |
+| Review only | Inspect renders and relevant source. Report actionable findings ranked by impact, and scan with the heuristic pass in `references/guardrails.md`. Create files or change code only when requested. |
 
 ## Full design workflow
 
@@ -33,6 +33,7 @@ Make visual decisions that fit the product, carry them into code, and inspect th
 - Add imagery, charts, texture, or motion when they explain the product or establish its identity. A text-led hero or quiet form can be the right choice. There is no quota of visual treatments.
 - Keep depth and effects coherent. Use meaningful grouping and alignment before adding shadows or decoration.
 - Tokenize reusable visual decisions. Allow local geometry, intrinsic dimensions, and calculated layouts where appropriate; do not create tokens for every incidental number. In utility frameworks, prefer theme-backed classes for reusable colors, spacing, type, and radii.
+- Tappable items (icon buttons, tabs, checkboxes) are at least 44px in their hit area, even in a small restyle. An empty state shows only the message and the one fill-it action: hide the tab bar, filters, sort controls and table header above it, because they do nothing until content exists. Hide them (the `hidden` attribute or a state class) rather than deleting the markup.
 - Use visible keyboard focus, semantic controls, accessible labels, and status cues beyond color. Normal text needs 4.5:1 contrast; large text and meaningful non-text UI need 3:1. Support reduced motion and platform font scaling, including text inside graphics. Use platform hit-target conventions and check required RTL layouts.
 
 ## Checks and their limits
@@ -68,6 +69,7 @@ Do not load the reference collection upfront. Select the file that answers the c
 | How should a new full design.md be structured? | `references/design-md-format.md` and `assets/design.md.template` |
 | Need possible visual directions? | `references/style-families.md` |
 | Does a major new screen need a stronger visual explanation? | `references/richness.md` |
+| Does the screen feel flat, noisy, or without a clear focus? | `references/hierarchy.md` |
 | Need palette, type, layout, or component details? | The relevant file: `color.md`, `typography.md`, `layout-spacing.md`, or `components-states.md` under `references/` |
 | Need effects, motion, platform mapping, or design guardrails? | The relevant file: `effects-motion.md`, `platforms.md`, or `guardrails.md` under `references/` |
 | Need historical numeric ranges? | `references/token-ranges.md`; optional heuristics, not requirements |

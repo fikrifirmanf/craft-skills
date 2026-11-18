@@ -11,6 +11,7 @@
 8. Overlays: dialogs, sheets, popovers, toasts
 9. Empty, loading and error states
 10. Iconography
+11. Finishing touches
 
 ---
 
@@ -51,6 +52,8 @@ Content states: empty, one item, many items (thousands), very long strings (name
 - Group related fields; use one column for most forms (faster to complete); mark the minority (optional *or* required, whichever is rarer).
 - Correct input types and keyboards (email, tel, numeric), autocomplete attributes, and return-key actions on mobile.
 - Long forms: sections with headings, sticky actions, saved progress.
+- Choosing a control: radio buttons for 2–4 mutually exclusive options (all visible), a select or dropdown for long lists, checkboxes for multi-select, and a switch only for settings that apply immediately. Important radio sets can be selectable cards.
+- Touch targets: at least 44×44pt (48dp on Android) for anything tappable, including icon buttons and checkboxes. Enlarge the hit area with padding if the visual is smaller.
 
 ## 5. Cards
 
@@ -87,7 +90,7 @@ Define card *types* by content, not one generic card:
 
 ## 9. Empty, loading and error states
 
-- **Empty:** explain what goes here, why it is empty, and the one action to fill it. Use an illustration or icon in the system's style, not a generic one.
+- **Empty:** explain what goes here, why it is empty, and the one action to fill it. Use an illustration or icon in the system's style, not a generic one. Emphasize the call to action and hide supporting UI (tabs, filters, sort) that does nothing until content exists. Design this first for features driven by user-generated content; it is the user's first view.
 - **Loading:** a skeleton matching the final layout for content; a spinner only for short, unknown waits; progress for long known ones. Avoid layout shift when content arrives.
 - **Error:** what happened in plain words, what the user can do, and a retry. Keep the user's input.
 - **Partial:** some data loaded, some failed. Show what you have and mark what's missing.
@@ -97,3 +100,13 @@ Define card *types* by content, not one generic card:
 - One icon set, one stroke width (1.5 or 2px at 24px), one corner style matching the radius family.
 - Sizes on a grid: 16, 20, 24. Icons align optically with the cap height of adjacent text.
 - Decorative icons are hidden from assistive technology; meaningful icon-only controls have labels.
+- Icons drawn for 16–24px look chunky when scaled to 3–4×. For a large feature icon, keep the glyph near its native size inside a larger tinted shape.
+
+## 11. Finishing touches
+
+Small moves that lift plain UI without adding new elements. Use sparingly and consistently:
+- Replace default bullets with check or arrow icons, and style checkboxes and radios with the brand colour for the selected state.
+- Promote testimonials or pull quotes by enlarging and colouring the quote text.
+- Add an accent border (top of a card, side of an alert, under a headline, beside the active nav item) for colour without fills. Count it as an accent use.
+- Prefer fewer borders. To separate neighbours, try a soft shadow, a slightly different background tone, or more spacing before adding a line.
+- Rethink stock components when it helps the content: a menu with sections and supporting text, a table that merges related columns and adds avatars, or selectable cards instead of plain radios.

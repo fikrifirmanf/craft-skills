@@ -33,4 +33,16 @@ Look for these problems:
 - Copy contains filler or claims without supporting facts.
 - State, contrast, overflow, or font scaling fails in the render.
 
+## Heuristic pass for reviews
+
+For review-only requests, scan with these in addition to the render:
+- **Status and feedback:** does every action show a result, loading and error state?
+- **Control:** can the user undo, cancel or go back? Is there an escape from modals and flows?
+- **Consistency:** the same action looks and is worded the same everywhere.
+- **Error prevention and recovery:** confirmations only where the cost is high; error text says what happened and how to fix it, without codes.
+- **Recognition over recall:** options are visible, not memorised; defaults and examples are provided.
+- **Minimal:** no information competing with the task. Reduce cognitive load by removing steps and options before adding help.
+- **Dark patterns:** false urgency, hidden costs, pre-ticked extras, confusing opt-outs, a hard-to-find cancel. Flag them; do not design them.
+- **Not colour alone, and touch targets of at least 44pt.**
+
 Fix concrete weaknesses in the requested surface. Preserve intentional conventions and useful existing patterns.
