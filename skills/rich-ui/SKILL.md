@@ -14,7 +14,7 @@ Make visual decisions that fit the product, carry them into code, and inspect th
 | Small visual fix or component adjustment | Read the affected component and existing tokens. Make the change and inspect the affected states. No new design.md or reference reading required. |
 | New screen in an established product | Reuse its theme and components. Add only missing tokens; update an existing design.md only when decisions change. If useful, record new decisions briefly in the project's existing documentation. |
 | New product, design system, or substantial redesign | Choose a direction, write a concise design.md, implement, render, and verify as below. |
-| Review only | Inspect renders and relevant source. Report actionable findings ranked by impact. Create files or change code only when requested. |
+| Review only | Inspect renders and relevant source. Report actionable findings ranked by impact, and scan with the heuristic pass in `references/guardrails.md`. Create files or change code only when requested. |
 
 ## Full design workflow
 
