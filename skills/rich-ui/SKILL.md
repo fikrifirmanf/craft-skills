@@ -33,7 +33,7 @@ Make visual decisions that fit the product, carry them into code, and inspect th
 - Add imagery, charts, texture, or motion when they explain the product or establish its identity. A text-led hero or quiet form can be the right choice. There is no quota of visual treatments.
 - Keep depth and effects coherent. Use meaningful grouping and alignment before adding shadows or decoration.
 - Tokenize reusable visual decisions. Allow local geometry, intrinsic dimensions, and calculated layouts where appropriate; do not create tokens for every incidental number. In utility frameworks, prefer theme-backed classes for reusable colors, spacing, type, and radii.
-- Tappable items (icon buttons, tabs, checkboxes) are at least 44px in their hit area, even in a small restyle. In an empty state, hide controls that do nothing until content exists (tab bars, filters, table headers) and make the one fill-it action the focus.
+- Tappable items (icon buttons, tabs, checkboxes) are at least 44px in their hit area, even in a small restyle. An empty state shows only the message and the one fill-it action: hide the tab bar, filters, sort controls and table header above it, because they do nothing until content exists.
 - Use visible keyboard focus, semantic controls, accessible labels, and status cues beyond color. Normal text needs 4.5:1 contrast; large text and meaningful non-text UI need 3:1. Support reduced motion and platform font scaling, including text inside graphics. Use platform hit-target conventions and check required RTL layouts.
 
 ## Checks and their limits
