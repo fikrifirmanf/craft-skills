@@ -1,0 +1,13 @@
+body { margin: 0; font-family: Arial, sans-serif; font-size: 16px; color: #222; background: #fff; }
+.nav { display: flex; gap: 8px; padding: 12px 24px; border-bottom: 1px solid #ccc; }
+.nav-item { padding: 8px 12px; color: #222; text-decoration: none; border: 1px solid #ccc; }
+.nav-item.active { border-color: #1d4ed8; color: #1d4ed8; }
+.page { max-width: 720px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 32px; margin: 0 0 16px; }
+h2 { font-size: 28px; margin: 24px 0 8px; font-weight: 700; }
+p { margin: 4px 0; font-size: 16px; }
+.banner { background: #1d4ed8; border: 1px solid #1d4ed8; padding: 16px; margin-bottom: 16px; }
+.banner-title { color: #ddd; font-size: 20px; font-weight: 700; margin: 0; }
+.banner-text { color: #bbb; font-size: 16px; font-weight: 700; margin: 4px 0 0; }
+section { border: 1px solid #ccc; padding: 16px; margin-bottom: 16px; }
+.btn { font-size: 16px; font-weight: 700; padding: 10px 20px; margin-right: 8px; border: 2px solid #1d4ed8; background: #1d4ed8; color: #fff; border-radius: 4px; }
