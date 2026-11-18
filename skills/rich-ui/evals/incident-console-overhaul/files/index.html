@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Incidents - Halyard Ops</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <div class="rail">
+      <div class="brand">Halyard Ops</div>
+      <a href="#">Overview</a><a href="#" class="on">Incidents</a><a href="#">Alerts</a><a href="#">Services</a>
+      <a href="#">On-call</a><a href="#">Runbooks</a><a href="#">Postmortems</a><a href="#">Status page</a>
+      <a href="#">Integrations</a><a href="#">Audit log</a><a href="#">Team</a><a href="#">Billing</a><a href="#">Settings</a>
+    </div>
+    <div class="content">
+      <div class="topbar">
+        <h1>Incidents</h1>
+        <input class="search" placeholder="Search incidents, services, people">
+        <button class="btn">Export CSV</button>
+        <button class="btn">Bulk resolve</button>
+        <button class="btn">Declare drill</button>
+        <button class="btn blue">Declare incident</button>
+        <button class="btn red">Delete all resolved</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="k">Open incidents</div><div class="v">7</div><div class="d">+2 vs last week</div></div>
+        <div class="stat"><div class="k">Mean time to acknowledge</div><div class="v">4m 12s</div><div class="d">-38s vs last week</div></div>
+        <div class="stat"><div class="k">Mean time to resolve</div><div class="v">1h 47m</div><div class="d">+12m vs last week</div></div>
+        <div class="stat"><div class="k">Uptime (30 days)</div><div class="v">99.94%</div><div class="d">SLO 99.9%</div></div>
+      </div>
+
+      <div class="filters">
+        <select><option>All severities</option><option>SEV1</option><option>SEV2</option><option>SEV3</option></select>
+        <select><option>All statuses</option><option>Open</option><option>Mitigated</option><option>Resolved</option></select>
+        <select><option>All services</option></select>
+        <select><option>Last 7 days</option><option>Last 30 days</option></select>
+        <a href="#" class="clear">clear</a>
+      </div>
+
+      <div class="grid2">
+        <div class="box">
+          <div class="box-title">Incidents</div>
+          <table>
+            <thead><tr><th></th><th>ID</th><th>Title</th><th>Sev</th><th>Status</th><th>Service</th><th>Duration</th><th>Customers hit</th><th>Cost est.</th><th>Owner</th><th></th></tr></thead>
+            <tbody>
+              <tr><td><input type="checkbox"></td><td>INC-2041</td><td>Checkout API returning 502 for EU region after the 14:02 deploy of payments-gateway v3.18.0 rolled out to the canary and then everywhere</td><td><span class="chip s1">SEV1</span></td><td><span class="st red">Open</span></td><td>payments-gateway</td><td>2h 14m</td><td>12,480</td><td>$48,200.5</td><td>Priya Raman</td><td><a href="#">View</a> <a href="#">Edit</a> <a href="#" class="del">Delete</a></td></tr>
+              <tr><td><input type="checkbox"></td><td>INC-2040</td><td>Elevated latency on search</td><td><span class="chip s2">SEV2</span></td><td><span class="st amber">Mitigated</span></td><td>search-api</td><td>5h 3m</td><td>980</td><td>$3,100</td><td>Tomás Aguirre</td><td><a href="#">View</a> <a href="#">Edit</a> <a href="#" class="del">Delete</a></td></tr>
+              <tr><td><input type="checkbox"></td><td>INC-2039</td><td>Webhook retries piling up</td><td><span class="chip s2">SEV2</span></td><td><span class="st red">Open</span></td><td>webhooks</td><td>1h 20m</td><td>45</td><td>$410.75</td><td>Mei Lin Chan</td><td><a href="#">View</a> <a href="#">Edit</a> <a href="#" class="del">Delete</a></td></tr>
+              <tr><td><input type="checkbox"></td><td>INC-2038</td><td>Image resize worker OOM</td><td><span class="chip s3">SEV3</span></td><td><span class="st green">Resolved</span></td><td>media-worker</td><td>47m</td><td>0</td><td>$0</td><td>Dmitri Volkov</td><td><a href="#">View</a> <a href="#">Edit</a> <a href="#" class="del">Delete</a></td></tr>
+              <tr><td><input type="checkbox"></td><td>INC-2037</td><td>Login page slow for SSO users</td><td><span class="chip s3">SEV3</span></td><td><span class="st green">Resolved</span></td><td>auth</td><td>3h 9m</td><td>2,310</td><td>$1,950</td><td>Amara Okafor</td><td><a href="#">View</a> <a href="#">Edit</a> <a href="#" class="del">Delete</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box">
+          <div class="box-title">Incident INC-2041</div>
+          <div class="box">
+            <div class="box-title">Summary</div>
+            <p class="meta">Severity: SEV1 &middot; Status: Open &middot; Commander: Priya Raman &middot; Started 14:02 UTC</p>
+            <p>Checkout API is returning 502s for EU customers. Rollback of payments-gateway v3.18.0 is in progress.</p>
+          </div>
+          <div class="box">
+            <div class="box-title">Error rate (last 6 hours)</div>
+            <svg viewBox="0 0 300 80" class="spark"><polyline fill="none" stroke="#7aa7ff" stroke-width="2" points="0,70 40,68 80,66 120,64 160,30 200,12 240,10 300,14"/></svg>
+            <div class="legend"><span class="dot1"></span>5xx rate <span class="dot2"></span>p95 latency</div>
+          </div>
+          <div class="box">
+            <div class="box-title">Timeline</div>
+            <ul class="tl">
+              <li><b>16:12</b> Rollback started by Priya Raman</li>
+              <li><b>15:40</b> Status page updated: Investigating</li>
+              <li><b>14:31</b> Escalated to Payments on-call</li>
+              <li><b>14:09</b> Alert fired: checkout 5xx &gt; 5%</li>
+              <li><b>14:02</b> Deploy payments-gateway v3.18.0</li>
+            </ul>
+          </div>
+          <div class="box">
+            <div class="box-title">Post an update</div>
+            <textarea placeholder="What changed?"></textarea>
+            <select><option>Internal only</option><option>Publish to status page</option></select>
+            <button class="btn blue">Post</button> <button class="btn">Attach runbook</button> <button class="btn red">Close incident</button>
+          </div>
+          <div class="box">
+            <div class="box-title">Linked postmortems</div>
+            <div class="empty">Nothing here yet</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

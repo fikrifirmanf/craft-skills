@@ -34,7 +34,7 @@ A generated UI is recognisable by its defaults: purple gradients, glass cards, e
 - **Every control has a name:** icon-only buttons get `aria-label`; inputs get a `<label>` (placeholders are hints, not labels).
 - **Visible focus:** if you remove the outline, replace it (`focus-visible:ring-2 focus-visible:ring-ring`). Never `tabindex` > 0.
 - **Images:** meaningful `alt`, or `alt=""` when decorative.
-- **States:** hover, focus-visible, active, disabled, loading, empty and error are all designed.
+- **States:** hover, focus-visible, active, disabled, loading, empty and error are all designed. An empty panel says what will appear and offers one action; "Nothing here yet" alone is slop. Long table cells are clamped with the full text in `title` so one value cannot blow up a row. Scrollable tables get a sticky header. Chart series differ by shape, dash or direct label, never colour alone.
 - **Motion:** transition specific properties (`transition-colors`, `transition-transform`), 150-250ms, and honour `prefers-reduced-motion`. No `animate-bounce`/`animate-ping` to beg for clicks.
 - **No emoji as icons.** Use the project's icon set, or nothing.
 
