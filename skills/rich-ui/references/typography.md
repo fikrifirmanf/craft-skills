@@ -27,6 +27,8 @@ Type is the largest single signal of a design's character. Choose by tone:
 
 Inter is the most common family in the corpus, so it is a safe choice but not a distinctive one. If the brief calls for character, choose another face deliberately, or keep Inter for the UI and give the display role to something else.
 
+Picking a face: prefer families with many weights (about 5+, or 10+ styles including italics), which usually signals care. Avoid condensed or short-x-height faces for UI body text. Display faces with tight spacing do not work at small sizes, but a wide-spaced text face can be tightened for headlines. When unsure, use the system stack or inspect the faces of sites you admire.
+
 Check: language and script coverage (CJK, Arabic, Cyrillic, Devanagari), variable-font availability, licence, and file size on web (subset it, and use `font-display: swap`).
 
 ## 2. Pairing patterns
@@ -63,9 +65,14 @@ As size goes up, tracking and line-height come down:
 | 36–56px | −0.015 to −0.035em | 1.05–1.15 |
 | 64px+ | −0.025 to −0.05em | 0.9–1.05 |
 
-- Measure: 55–75 characters for reading text (`max-width: 65ch`).
+- Measure: 45–75 characters for reading text (`max-width: 65ch` is a good default). Keep paragraphs to this width even when the content area is wider because of images or tables.
+- Line-height is proportional to measure as well as size: narrow columns can sit near 1.5, wide ones need up to 1.75–2. Small text needs more leading; big headlines can drop to about 1.
 - Use `text-wrap: balance` for headings and `text-wrap: pretty` for paragraphs where supported.
 - Tabular numerals (`font-variant-numeric: tabular-nums`) for any column of numbers, prices, timers.
+
+- Mixed sizes on one line (a large title beside small actions or metadata) align on the **baseline**, not the vertical centre.
+- Left-align body text. Centre only headlines and blocks of two or three lines; rewrite shorter instead of centring long text. Right-align numbers in tables. If you justify text, enable hyphenation.
+- Not every link needs a colour. In link-dense UI use weight or a darker ink; ancillary links can show underline or colour only on hover.
 
 ## 5. Weights
 

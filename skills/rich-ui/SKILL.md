@@ -68,6 +68,7 @@ Do not load the reference collection upfront. Select the file that answers the c
 | How should a new full design.md be structured? | `references/design-md-format.md` and `assets/design.md.template` |
 | Need possible visual directions? | `references/style-families.md` |
 | Does a major new screen need a stronger visual explanation? | `references/richness.md` |
+| Does the screen feel flat, noisy, or without a clear focus? | `references/hierarchy.md` |
 | Need palette, type, layout, or component details? | The relevant file: `color.md`, `typography.md`, `layout-spacing.md`, or `components-states.md` under `references/` |
 | Need effects, motion, platform mapping, or design guardrails? | The relevant file: `effects-motion.md`, `platforms.md`, or `guardrails.md` under `references/` |
 | Need historical numeric ranges? | `references/token-ranges.md`; optional heuristics, not requirements |

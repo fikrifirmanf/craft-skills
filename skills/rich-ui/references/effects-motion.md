@@ -57,6 +57,10 @@ Choose one primary image type: photography, 3D renders, flat illustration, line 
 - Product screenshots: inside device or browser frames, or a cropped detail at real UI scale; never a blurry full-page shrink.
 - Illustration: one style, one stroke weight, using the palette's colours.
 - Always give an aspect ratio, a fallback colour and alt text.
+- Text over a photo needs consistent contrast, not just a colour choice. Options, from least to most invasive: a text shadow with large blur and no offset (a soft glow); lowering the image contrast and adjusting brightness; a black overlay under light text or white overlay under dark text; colourizing (lower contrast, desaturate, multiply a brand colour).
+- Icons and logos have an intended size. Do not blow up 16–24px icons (place them in a larger tinted shape), and redraw a simplified logo for favicons instead of shrinking the full one. Do not shrink a full-app screenshot; capture a smaller viewport, crop a detail, or draw a simplified UI.
+- User-uploaded images: show them in fixed-ratio containers with `object-fit: cover`. If an image's edge blends into the page, add a subtle inner shadow or a semi-transparent inner border instead of a solid border.
+- Overlapping elements (a card crossing the boundary between two backgrounds, controls half over an image) create layers cheaply. For overlapping images, give each an outline in the background colour.
 
 ## 6. Motion timing
 

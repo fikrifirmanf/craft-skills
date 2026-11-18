@@ -36,6 +36,8 @@ Section padding on desktop marketing pages is commonly 64–128px (corpus median
   - a list or table where a card grid was the reflex
 - Use three equal cards only when the content really is three equal peers.
 - **Close every row.** If a 3-column grid has a card spanning 2 columns, the item count must fill complete rows: with one 2-wide card use 5 cards (2+1, 1+1+1), or with 4 cards make the last one span 2 as well (2+1, 1+2). Six cards would leave an orphaned gap. The same applies to any column count: total spans must be a multiple of the column count.
+- **Use the grid selectively.** Not every element should be fluid. A sidebar gets a fixed width suited to its content while the main area flexes and uses its own internal grid. Size cards, forms and dialogs with a `max-width` and let them shrink only when the viewport is smaller than that, rather than switching percentage column spans per breakpoint.
+- **Don't fill the screen.** If a form needs 600px, give it 600px. To balance a narrow form in a wide layout, put supporting text in a second column instead of widening the form. Design small components on a small canvas first (about 400px), then adapt to larger sizes.
 - Align to shared edges. Count the distinct left edges on a screen; fewer is calmer.
 - Visual weight: one dominant element per view (a headline, a product shot, a key metric). If everything is large, nothing is.
 
@@ -79,7 +81,8 @@ Choose 2–4 radii, each with a role:
 Write what changes at each breakpoint, not only what exists:
 - Common web breakpoints: 640, 768, 1024, 1280px (or container queries per component).
 - Columns stack; asymmetric splits become a single column with the dominant element first.
-- Display type steps down (64 → 40px); section padding shrinks (96 → 56px).
+- Display type steps down (64 → 40px); section padding shrinks (96 → 56px). Do not tie these sizes to each other with a fixed ratio (such as headline = 2.5em): large elements shrink faster than small ones, so a 45px headline over 18px body may become 22px over 14px on mobile.
+- Component padding does not scale linearly with font size either. Large buttons get relatively more padding, small buttons relatively less. Set the values per size.
 - Sidebars become drawers or bottom sheets; tables become stacked cards or scroll horizontally with a sticky first column.
 - Hover-only affordances need a touch equivalent.
 - Mobile: no horizontal page scroll; 16px minimum side gutters; 16px minimum input font size on iOS web (prevents zoom).
