@@ -1,6 +1,6 @@
 ---
 name: rich-ui
-description: Design, build, or refine web and native interfaces with deliberate typography, layout, color, and visual hierarchy. Use for new screens, visual redesigns, design systems, or interfaces that look generic. Preserve established product styles. Excludes backend-only work and behavior-only fixes.
+description: Design, build, or review web and native interfaces with deliberate hierarchy, typography, materials, and motion. Use for screens, redesigns, design systems, and gesture-driven interactions such as draggable sheets, swipes, and interruptible transitions. Preserve established product styles and platform conventions.
 ---
 
 # Rich UI
@@ -11,7 +11,8 @@ Make visual decisions that fit the product, carry them into code, and inspect th
 
 | Request | Workflow |
 |---|---|
-| Small visual fix or component adjustment | Read the affected component and existing tokens. Make the change and inspect the affected states. No new design.md or reference reading required. |
+| Small visual fix or component adjustment | Read the affected component and existing tokens. Make the change and inspect the affected states. Read a reference only when the change calls for its guidance. |
+| Gesture or transition that people can interrupt | Prototype the interaction in the affected component. Read the direct manipulation reference and exercise release, reversal, and alternate input on the target. |
 | New screen in an established product | Reuse its theme and components. Add only missing tokens; update an existing design.md only when decisions change. If useful, record new decisions briefly in the project's existing documentation. |
 | New product, design system, or substantial redesign | Choose a direction, write a concise design.md, implement, render, and verify as below. |
 | Review only | Inspect renders and relevant source. Report actionable findings ranked by impact, and scan with the heuristic pass in `references/guardrails.md`. Create files or change code only when requested. |
@@ -31,7 +32,9 @@ Make visual decisions that fit the product, carry them into code, and inspect th
 - Choose type for the product and language. One family can be enough. Set a clear scale, readable line lengths, and appropriate tracking; allow native typography conventions.
 - Reuse spacing and radius roles. Choose density by task. Equal grids suit equal peers; asymmetry should serve content. In a three-column grid with one two-column card, use five cards, or make the final card span two columns when there are four; never use six.
 - Add imagery, charts, texture, or motion when they explain the product or establish its identity. A text-led hero or quiet form can be the right choice. There is no quota of visual treatments.
+- Give immediate press feedback and commit through the control's normal activation. Keep controls responsive during transitions. When a surface opens from a trigger or edge, make its origin and return path clear.
 - Keep depth and effects coherent. Use meaningful grouping and alignment before adding shadows or decoration.
+- On native Apple targets, start with system controls, semantic styles, and the platform's navigation and presentation patterns. Match the target and deployment version before choosing APIs or borrowing conventions across devices.
 - Tokenize reusable visual decisions. Allow local geometry, intrinsic dimensions, and calculated layouts where appropriate; do not create tokens for every incidental number. In utility frameworks, prefer theme-backed classes for reusable colors, spacing, type, and radii.
 - Tappable items (icon buttons, tabs, checkboxes) are at least 44px in their hit area, even in a small restyle. An empty state shows only the message and the one fill-it action: hide the tab bar, filters, sort controls and table header above it, because they do nothing until content exists. Hide them (the `hidden` attribute or a state class) rather than deleting the markup.
 - A small empty section inside a busy page (a panel with no linked items yet) gets the same treatment: one line saying what will appear there, plus one action or a pointer to where it is created. A bare "Nothing here yet" is not a designed empty state.
@@ -76,4 +79,6 @@ Do not load the reference collection upfront. Select the file that answers the c
 | Does the screen feel flat, noisy, or without a clear focus? | `references/hierarchy.md` |
 | Need palette, type, layout, or component details? | The relevant file: `color.md`, `typography.md`, `layout-spacing.md`, or `components-states.md` under `references/` |
 | Need effects, motion, platform mapping, or design guardrails? | The relevant file: `effects-motion.md`, `platforms.md`, or `guardrails.md` under `references/` |
+| Building or reviewing drag, swipe, snap, or interruptible motion? | [Direct manipulation](references/direct-manipulation.md) |
+| Building or reviewing a native Apple surface, including macOS workflows? | [Native Apple UI](references/apple-platforms.md) |
 | Need historical numeric ranges? | `references/token-ranges.md`; optional heuristics, not requirements |

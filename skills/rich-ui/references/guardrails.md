@@ -36,8 +36,9 @@ Look for these problems:
 ## Heuristic pass for reviews
 
 For review-only requests, scan with these in addition to the render:
-- **Status and feedback:** does every action show a result, loading and error state?
+- **Status and feedback:** show relevant progress, completion, warnings, or errors. Check that the feedback appears close to the action and in time to guide the next step.
 - **Control:** can the user undo, cancel or go back? Is there an escape from modals and flows?
+- **Wayfinding and mapping:** can people identify their location, next options, and way back? Put controls near what they affect and use labels that name the destination or action.
 - **Consistency:** the same action looks and is worded the same everywhere.
 - **Error prevention and recovery:** confirmations only where the cost is high; error text says what happened and how to fix it, without codes.
 - **Recognition over recall:** options are visible, not memorised; defaults and examples are provided.
@@ -46,3 +47,5 @@ For review-only requests, scan with these in addition to the render:
 - **Not colour alone, and touch targets of at least 44pt.**
 
 Fix concrete weaknesses in the requested surface. Preserve intentional conventions and useful existing patterns.
+
+Related source: [Apple's Principles of great design](https://developer.apple.com/videos/play/wwdc2026/250/).

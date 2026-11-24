@@ -39,9 +39,11 @@ A secondary strategy is allowed for exactly one component class (for example, a 
 
 Glass only works over something worth blurring (imagery, gradients, scrolling content).
 - Recipe: fill at 50–75% alpha of the surface colour, `backdrop-filter: blur(12–24px) saturate(1.1–1.5)`, a hairline border at 8–15% white, and an optional inset top highlight.
-- Text on glass must pass contrast against the *worst-case* content behind it. Increase fill opacity until it does.
+- Use translucency to separate floating controls from content. Give larger structural overlays a stronger fill when needed for separation and avoid layering multiple light translucent surfaces. A soft scroll-edge treatment makes sense where floating controls actually overlap scrolling content.
+- Use a scrim when a modal blocks the underlying task. Keep a parallel inspector or nonmodal panel usable alongside its content without a scrim.
+- Test text, icons, and focus indicators against the worst backgrounds they can overlap. Increase fill opacity or use a solid surface if contrast varies too much. Start with a legible solid fallback and enhance it where backdrop filtering is supported.
 - Performance: avoid blur on large scrolling areas or many simultaneous layers, especially on mobile and low-end hardware.
-- Native equivalents: SwiftUI `.background(.ultraThinMaterial)`; Android `RenderEffect.createBlurEffect` (API 31+); Windows Mica/Acrylic; macOS `NSVisualEffectView`.
+- On Apple platforms, prefer the system material supplied by the relevant control or container. Consult current [Apple materials guidance](https://developer.apple.com/design/human-interface-guidelines/materials) before choosing custom materials.
 
 ## 4. Gradients, glows, texture
 
@@ -64,6 +66,8 @@ Choose one primary image type: photography, 3D renders, flat illustration, line 
 
 ## 6. Motion timing
 
+Use these ranges for state changes without live gesture input. For gesture-driven motion, use [Direct manipulation](direct-manipulation.md).
+
 | Category | Duration | Easing |
 |---|---|---|
 | Micro (hover, press, toggle) | 100–180ms | ease-out / `cubic-bezier(0.2,0,0,1)` |
@@ -79,8 +83,8 @@ Corpus median: 220ms. Exits are faster than entrances. Stagger lists by 30–60m
 
 - Animate `transform` and `opacity`; avoid width, height, top and left (layout thrash).
 - Entrance: fade plus 8–16px translate, not large slides or scale-from-zero.
-- Feedback motion must be immediate (start within 100ms of input).
-- Springs suit direct manipulation (drag, sheet snap, iOS/Compose gestures). Bounce on brand-playful systems only, and on small elements.
+- Show press feedback as soon as the control is pressed. Keep keyboard and assistive activation on the control's normal semantics.
+- Use springs for movement users can redirect. Start with a controlled settle and consider slight bounce when it communicates the momentum of a flick or throw.
 - Don't animate on every scroll position (scroll-jacking); parallax at most once per page, subtly.
 - Native: SwiftUI `.animation(.snappy)` / `.spring(duration:bounce:)`; Compose `animate*AsState` with `spring()` or `tween()`; Flutter `Curves.easeOutCubic`; Material motion tokens.
 
@@ -88,5 +92,6 @@ Corpus median: 220ms. Exits are faster than entrances. Stagger lists by 30–60m
 
 Required on every platform:
 - Web: `@media (prefers-reduced-motion: reduce)` swaps movement for opacity fades or nothing; stops loops and autoplay.
-- iOS: `@Environment(\.accessibilityReduceMotion)`. Android: check the animator duration scale. Desktop: respect the OS setting.
+- Web materials: use an opaque surface under `prefers-reduced-transparency: reduce` where supported. Under `prefers-contrast: more`, strengthen foreground contrast and control boundaries. Keep the default legible on browsers without these queries.
+- SwiftUI: `@Environment(\.accessibilityReduceMotion)`. Let native system materials respond to accessibility settings and adapt custom surfaces as needed. Android: check the animator duration scale. Desktop: respect the OS setting.
 - Never convey information *only* through motion.

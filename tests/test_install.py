@@ -11,7 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location('craft_install', ROOT / 'scripts' / 'install.py')
 INSTALLER = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(INSTALLER)
-NAMES = {'architecture-unslop', 'backend-unslop', 'copy-unslop', 'frontend-unslop', 'mobile-unslop', 'motion-graphic-design', 'rich-ui', 'test-unslop', 'ui-unslop'}
+NAMES = {
+    'architecture-unslop', 'backend-unslop', 'copy-unslop', 'design-craft',
+    'diagram-craft', 'frontend-unslop', 'mobile-unslop', 'motion-graphic-design',
+    'rich-ui', 'runtime-craft', 'test-unslop', 'ui-unslop',
+}
 
 
 class InstallerTests(unittest.TestCase):

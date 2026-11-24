@@ -66,6 +66,7 @@ As size goes up, tracking and line-height come down:
 | 64px+ | −0.025 to −0.05em | 0.9–1.05 |
 
 - Measure: 45–75 characters for reading text (`max-width: 65ch` is a good default). Keep paragraphs to this width even when the content area is wider because of images or tables.
+- Leave `font-optical-sizing: auto` enabled for web fonts with an optical-size axis. Judge tracking and leading at each rendered size in the actual face. Give scripts with tall glyphs more leading when needed. [The details of UI typography](https://developer.apple.com/videos/play/wwdc2020/10175/)
 - Line-height is proportional to measure as well as size: narrow columns can sit near 1.5, wide ones need up to 1.75–2. Small text needs more leading; big headlines can drop to about 1.
 - Use `text-wrap: balance` for headings and `text-wrap: pretty` for paragraphs where supported.
 - Tabular numerals (`font-variant-numeric: tabular-nums`) for any column of numbers, prices, timers.
@@ -96,4 +97,4 @@ Pick at most one or two:
 - **iOS:** use SF Pro via system fonts unless the brand requires otherwise; support Dynamic Type (`.font(.body)` styles, or `UIFontMetrics` scaling for custom fonts).
 - **Android:** Material type roles (displayLarge … labelSmall) mapped to your scale; use `sp` units so user font scaling works; test at 200%.
 - **Desktop:** base 13–14px for dense apps (macOS system 13pt; Windows Segoe UI Variable 14px), with platform-native fonts for chrome.
-- **Web:** `rem` for font sizes so browser zoom and user settings apply.
+- **Web:** use `rem` for font sizes and let containers reflow with larger text. Check wrapping and control height at increased text sizes before reaching for truncation.

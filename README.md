@@ -1,6 +1,6 @@
 # Craft Skills
 
-Agent skills for UI design, motion graphics, frontend and backend code, backend architecture, mobile apps, tests, and copy.
+Agent skills for web design, diagrams, interactive runtimes, motion graphics, frontend and backend code, backend architecture, mobile apps, tests, and copy.
 
 Each skill lives in its own folder under `skills/`. Install the whole collection or pick the skills you need.
 
@@ -8,6 +8,9 @@ Each skill lives in its own folder under `skills/`. Install the whole collection
 
 | Skill | What it covers |
 |---|---|
+| [design-craft](skills/design-craft/SKILL.md) | Visual direction, responsive layout, and theming for standalone pages and embedded artifacts. |
+| [diagram-craft](skills/diagram-craft/SKILL.md) | Architecture, data flow, and state diagrams in SVG, Mermaid, or text, according to the target renderer. |
+| [runtime-craft](skills/runtime-craft/SKILL.md) | Browser and host choices for state, persistence, live data, and integrations. |
 | [rich-ui](skills/rich-ui/SKILL.md) | Type, layout, color, tokens, and visual review. Small fixes use a shorter workflow. |
 | [motion-graphic-design](skills/motion-graphic-design/SKILL.md) | Kinetic type, product films, animated explainers, 3D demonstrations, and rendering checks. |
 | [ui-unslop](skills/ui-unslop/SKILL.md) | Web UI consistency, accessibility, contrast, and interaction states. |
@@ -34,7 +37,7 @@ cd craft-skills
 ./install.sh
 ```
 
-By default, this copies all nine skills into `~/.agents/skills`, the shared personal skill directory used by Codex. For Claude Code:
+By default, this copies all skills into `~/.agents/skills`, the shared personal skill directory used by Codex. For Claude Code:
 
 ```bash
 ./install.sh --target claude
@@ -49,6 +52,8 @@ By default, this copies all nine skills into `~/.agents/skills`, the shared pers
 | `--dir PATH` | A custom skill directory |
 
 See the official [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills) and [Claude Code skill documentation](https://code.claude.com/docs/en/skills) for discovery and invocation details.
+
+For another coding agent, use `--dir PATH` to copy the skills into its configured skill directory. If the agent lacks skill discovery, point it directly to the relevant `SKILL.md` in this checkout and keep its companion files accessible.
 
 ### Choose skills or preview an install
 
@@ -81,6 +86,8 @@ Existing skill folders are preserved unless you pass `--force`. An update first 
 Use the same target and skill options when updating a selected installation. The installer does not change agent settings or configure MCP servers.
 
 ## Companion tools
+
+The three `*-craft` skills work from their `SKILL.md` files without a companion server. Browser previews, publishing, and hosted integrations depend on the target environment. The design and runtime skills include optional Claude Artifact references for that destination.
 
 `rich-ui` includes local Python checks for design documents, contrast, and token values. Browser or simulator rendering comes from your agent environment.
 

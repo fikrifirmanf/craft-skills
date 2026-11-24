@@ -36,6 +36,7 @@ v4: put the tokens in `@theme { --color-accent: …; --radius-card: …; }`. v3:
 A `theme.ts` exporting `colors`, `space`, `radii` and `typography` objects (light/dark keyed), provided through context or a library (Restyle, Tamagui, Unistyles). Use `useColorScheme()` for the theme. Font scaling: leave `allowFontScaling` on and test at large sizes.
 
 ### SwiftUI / UIKit
+- For Apple-specific system controls, adaptation, accessibility, and macOS workflows, see [Native Apple UI](apple-platforms.md).
 - Colours in the asset catalog with Any/Dark appearances, exposed as `extension Color { static let accentRole = Color("Accent") }`, or a `Theme` struct in the environment.
 - Type: `extension Font { static let display = Font.custom("X", size: 56, relativeTo: .largeTitle) }` so Dynamic Type still scales.
 - Spacing and radius: `enum Space { static let md: CGFloat = 16 }`; use `RoundedRectangle(cornerRadius: r, style: .continuous)`.
